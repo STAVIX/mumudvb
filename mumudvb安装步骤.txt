@@ -1,0 +1,32 @@
+
+1.mumudvb所需的包：
+    apt-get install git subversion make gcc libtool gettext dvb-apps
+
+3.mumudvb安装：
+    1. 安装libdvbcsa库：
+        svn co svn://svn.videolan.org/libdvbcsa/trunk libdvbcsa
+    或者：
+        wget http://download.videolan.org/pub/videolan/libdvbcsa/1.1.0/libdvbcsa-1.1.0.tar.gz
+        tar -xvf libdvbcsa-1.1.0.tar.gz
+        (改为：git clone https://code.videolan.org/videolan/libdvbcsa.git)//yun xing zhe ge ming ling
+    cd libdvbcsa
+    ./bootstrap  
+	（这一步zhiqian可能需要aptitude install automake1.9
+			update-alternatives --config automake
+			http://forums.debian.net/viewtopic.php?f=17&t=46121）
+	（上面改为sudo apt-get install dh-autoreconf）//yun xing zhe ge ming ling
+    sudo ./configure --prefix=/usr
+    sudo make
+    sudo make install
+
+    2. mumudvb安装：
+    git clone git://github.com/braice/MuMuDVB.git
+    cd MuMuDVB
+    autoreconf -i -f
+    ./configure --prefix=/usr --enable-cam-support --enable-scam-support
+    make
+    make install
+4. mumudvb配置注意事项：
+   配置文件模版参见本文同目录下 .conf 结尾的文件
+
+5. 安装VLC
