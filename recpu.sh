@@ -1,4 +1,5 @@
 #!/bin/bash
+# es use of 47 CPU servicer
 
 sudo chmod 777 /proc/irq/default_smp_affinity
 echo "003f,ffffffff" > /proc/irq/default_smp_affinity
